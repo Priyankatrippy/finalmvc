@@ -1,0 +1,35 @@
+﻿
+@model WebAppfinalMvcMarch3.Models.PanelMember
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Panel Member Details</h2>
+
+<dl class="dl-horizontal">
+    <dt>@Html.DisplayNameFor(model => model.Name)</dt>
+    <dd>@Html.DisplayFor(model => model.Name)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.Position)</dt>
+    <dd>@Html.DisplayFor(model => model.Position)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.Department)</dt>
+    <dd>@Html.DisplayFor(model => model.Department)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.Email)</dt>
+    <dd>@Html.DisplayFor(model => model.Email)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.PhoneNumber)</dt>
+    <dd>@Html.DisplayFor(model => model.PhoneNumber)</dd>
+</dl>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PanelMemberId }) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.PanelMemberId })
+</p>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

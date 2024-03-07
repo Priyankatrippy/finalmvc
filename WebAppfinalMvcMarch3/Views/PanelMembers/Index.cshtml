@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WebAppfinalMvcMarch3.Models.PanelMember>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container" style="background-color: #ded9ee; color: #7b1d52;">
+    <h2>Panel Members</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+    <table class="table">
+        <tr>
+            <th style="color: #7b1d52;">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th style="color: #7b1d52;">
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+            <th style="color: #7b1d52;">
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th style="color: #7b1d52;">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th style="color: #7b1d52;">
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Position)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.PanelMemberId }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PanelMemberId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PanelMemberId })
+                </td>
+            </tr>
+        }
+    </table>
+</div>

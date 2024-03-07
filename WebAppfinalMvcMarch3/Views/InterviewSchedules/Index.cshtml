@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WebAppfinalMvcMarch3.Models.InterviewSchedule>
+
+@{
+    ViewBag.Title = "Interview Schedules";
+}
+
+<div class="container" style="background-color: #ded9ee; color: #7b1d52;">
+    <h2>Interview Schedules</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+    <table class="table">
+        <tr>
+            <th style="color: #7b1d52;">
+                <!-- Accent color for table header -->
+                @Html.DisplayNameFor(model => model.InterviewDateTime)
+            </th>
+            <th style="color: #7b1d52;">
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th style="color: #7b1d52;">
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th style="color: #7b1d52;">
+                @Html.DisplayNameFor(model => model.CandidateId)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InterviewDateTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CandidateId)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.InterviewScheduleId }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.InterviewScheduleId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.InterviewScheduleId })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+

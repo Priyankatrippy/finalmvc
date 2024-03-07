@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebAppfinalMvcMarch3.Models.Candidate>
+
+@{
+    ViewBag.Title = "Candidates";
+}
+
+<div class="container" style="background-color: #ded9ee; color: #7b1d52;">
+    <h2>Candidates</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+    <table class="table">
+        <tr>
+            <th style="color: #7b1d52;">
+                <!-- Accent color for table header -->
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th style="color: #7b1d52;">
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th style="color: #7b1d52;">
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th style="color: #7b1d52;">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th style="color: #7b1d52;">
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.CandidateId }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CandidateId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CandidateId })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+

@@ -1,0 +1,42 @@
+﻿@model WebAppfinalMvcMarch3.Models.Logins
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@using CaptchaMvc.HtmlHelpers
+
+<div class="container" style="background-color: #ded9ee; color: #7b1d52;">
+    <h2>Login</h2>
+    @using (Html.BeginForm("Index", "Tech", FormMethod.Post, new { enctype = "multipart/form-data", id = "formCaptcha" }))
+    {
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label", style = "color: #7b1d52;" })
+            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label", style = "color: #7b1d52;" })
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserPassword, htmlAttributes: new { @class = "control-label", style = "color: #7b1d52;" })
+            @Html.PasswordFor(model => model.UserPassword, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.Captcha(refreshText: "Try Another", inputText: "Input the text you see above", length: 5, requiredMessageText: "Is Required Field", addValidationSpan: true)
+            <p class="text-danger" style="color: #7b1d52;">@ViewBag.ErrorMessage</p>
+        </div>
+        <input type="submit" value="Save" name="Save" class="btn btn-primary" style="background-color: #7b1d52; border-color: #7b1d52;" />
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+

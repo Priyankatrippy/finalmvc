@@ -1,0 +1,47 @@
+﻿
+@model WebAppfinalMvcMarch3.Models.PanelMember
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Panel Member</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Position)
+        @Html.TextBoxFor(model => model.Position, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Position)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Department)
+        @Html.TextBoxFor(model => model.Department, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PhoneNumber)
+        @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
